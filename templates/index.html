@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECG Analysis Platform</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #dddfe2;
+            background-image: url('D:/project/photo_6179216006656935646_y.jpg');/* Add your image URL here */
+            background-size: cover;
+            background-repeat: no-repeat;
+          /* Adjust this value to move the image upward */background-position: -20% 20%;
+            color: rgb(0, 0, 0);
+            line-height: 1.8;
+            display: flex;
+            
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header Section */
+        header {
+            width: 100%;
+            background-color: rgba(147, 151, 162, 0.9); /* Slight transparency for background image */
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-bar img {
+            height: 60px; /* Adjust the size of the logo */
+            width: auto;
+        }
+
+        .nav-bar button {
+            background-color: #dddfe2;
+            color: rgb(4, 4, 4);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar button:hover {
+            background-color: #d2d2d2;
+        }
+
+        /* Dropdown Menu Styling */
+.has-dropdown {
+    position: relative; /* Ensures the dropdown is positioned relative to its button */
+}
+
+.dropdown {
+    position: absolute; /* Position the dropdown relative to the parent */
+    top: 100%; /* Align the dropdown just below the button */
+    left: 0; /* Start the dropdown from the left edge of the button */
+    display: none;
+    background-color:#c6cbd0;
+    box-shadow: 0 8px 16px rgba(4, 4, 4);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+    width: max-content; /* Adjust dropdown width to fit content */
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px 20px;
+    color: rgb(4, 4, 4);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.dropdown a:hover {
+    background-color: #a79f9f;
+}
+
+/* Show dropdown on hover */
+.nav-bar .has-dropdown:hover .dropdown {
+    display: block;
+}
+
+
+        .actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .actions button {
+            background-color: #dddfe2;
+            color: rgb(4, 4, 4);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .actions button:hover {
+            background-color: #d2d2d2;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            text-align: center;
+            margin-top: 90px;
+            margin-bottom: 10px;
+            padding: 0 40px;
+        }
+
+        .welcome-section h1 {
+            font-size: 5rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .welcome-section p {
+            margin-top:150px;
+            font-size: 1.9rem;
+            color: #151516;
+        }
+
+        /* Buttons Section */
+        .buttons-section {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .buttons-section button {
+            background-color:  #b6a2a2;
+            border: none;
+            color: rgb(4, 4, 4);
+            padding: 16px 32px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .buttons-section button:hover {
+            background-color: #c3baba;
+        }
+
+        /* Chatbot Image Section */
+        .chatbot-img {
+            position: fixed;
+            bottom: 20px; /* Position the chatbot 20px from the bottom */
+            right: 20px; /* Position the chatbot 20px from the right */
+            width: 80px; /* Set the size of the chatbot icon */
+            height: 80px; /* Make the image square */
+            background-color:#928a8a; /* Background color for the circle */
+            border-radius: 50%; /* Make the image circular */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chatbot-img img {
+            width: 130%;
+            height: 130%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-bar">
+            <img src="logo.png" alt="ECG Logo"> <!-- Add your logo image here -->
+            <button>Home</button>
+            <div class="has-dropdown">
+                <button>Services</button>
+                <div class="dropdown">
+                    <a href="#">AI-Powered ECG Interpretation</a>
+                    <a href="#">Customizable Report Generation</a>
+                    <a href="#">Subscription Plans</a>
+                    <a href="#">Personalized Health Insights</a>
+                </div>
+            </div>
+            <div class="has-dropdown">
+                <button>Instruction</button>
+                <div class="dropdown">
+                    <a href="#">Upload a scanned image of a 12-lead ECG below. 
+                    <a href="#">The tool will generate a complete diagnostic report.</a>
+                    <a href="#">Note: This tool is meant only for 12-lead ECGs.</a>
+                </div>
+            </div>
+            <div class="has-dropdown">
+                <button>Contact Us</button>
+                <div class="dropdown">
+                    <a href="#">Email: ecggptorg@gmail.com.</a>
+                    <a href="#">Phone: +91 97485 26793</a>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <button>Login</button>
+            <button>Register</button>
+        </div>
+    </header>
+
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+        <h1>Welcome to ECG GPT</h1>
+        <p>Effortlessly upload your ECG data <br>Receive instant interpretations with customizable reports.</p>
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="buttons-section">
+        <button>Upload ECG Image</button>
+        <button>Share Report</button>
+    </div>
+
+    <!-- Chatbot Image -->
+    <div class="chatbot-img">
+        <img src="D:\project\photo_6179216006656935647_x.jpg" alt="Chatbot"> <!-- Add your chatbot image here -->
+    </div>
+</body>
+</html>
